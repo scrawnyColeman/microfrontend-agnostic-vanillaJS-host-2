@@ -8,9 +8,10 @@ const getRemote = (mfe) => {
     react: "https://mfe-react-scrawnycoleman.vercel.app/",
     vue: "https://mfe-vue-scrawnycoleman.vercel.app/",
     svelte: "https://mfe-svelte-scrawnycoleman.vercel.app/",
+    solid: "https://solid-js-mfe-scrawnycoleman.vercel.app/",
   };
 
-  return `${mfe}_mfe@${remoteMap[mfe]}/remoteEntry.js`;
+  return `${mfe}_mfe@${remoteMap[mfe]}remoteEntry.js`;
 };
 
 module.exports = {
@@ -46,6 +47,7 @@ module.exports = {
         react: getRemote("react"),
         vue: getRemote("vue"),
         svelte: getRemote("svelte"),
+        solid: getRemote("solid"),
       },
       exposes: {},
       shared: {

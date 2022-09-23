@@ -1,10 +1,12 @@
 import VueButton from "vue/Button";
 import ReactButton from "react/Button";
 import SvelteButton from "svelte/Button";
+import SolidButton from "solid/Button";
 
 VueButton("vue");
 ReactButton("react");
 SvelteButton(window, "svelte");
+SolidButton("solid");
 
 let count = 0;
 
