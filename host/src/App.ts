@@ -1,19 +1,19 @@
-import VueButton from "vue/Button";
+import VueApp from "vue/App";
 import ReactApp from "react/App";
 import SvelteApp from "svelte/App";
 import SolidButton from "solid/Button";
 
-VueButton("vue");
 SolidButton("solid");
 
 const renderReactApp = () => {
   const element = document.createElement("div");
   const id = "react-app";
-  element.innerHTML = `<div id="${id}"></div>`;
+  element.id = id;
   document.body.appendChild(element);
   try {
     ReactApp(document, id);
   } catch (e) {
+    console.error((e as Error).message);
     element.remove();
   }
 };
@@ -21,29 +21,32 @@ const renderReactApp = () => {
 const renderSvelteApp = () => {
   const element = document.createElement("div");
   const id = "svelte-app";
-  element.innerHTML = `<div id="${id}"></div>`;
+  element.id = id;
   document.body.appendChild(element);
   try {
     SvelteApp(document, id);
   } catch (e) {
-    document.getElementById(id).remove();
+    console.error((e as Error).message);
+    element.remove();
   }
 };
 
 const renderVueApp = () => {
   const element = document.createElement("div");
   const id = "vue-app";
-  element.innerHTML = `<div id="${id}"></div>`;
+  element.id = id;
   document.body.appendChild(element);
   try {
-    VueApp(document, id);
+    VueApp(id);
   } catch (e) {
-    document.getElementById(id).remove();
+    console.error((e as Error).message);
+    element.remove();
   }
 };
 
 renderReactApp();
 renderSvelteApp();
+renderVueApp();
 
 let count = 0;
 
