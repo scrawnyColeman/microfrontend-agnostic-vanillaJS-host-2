@@ -113,6 +113,6 @@ const renderHome = () => {
 
 renderHome();
 render("react");
-// render("svelte");
-// render("vue");
-// render("solid");
+render("svelte");
+render("vue");
+render("solid");
