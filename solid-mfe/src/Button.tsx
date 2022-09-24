@@ -20,6 +20,6 @@ export default Button;
 const StyledButton = styled("button")({
   padding: "0.5rem",
   borderRadius: "0.375rem",
-  backgroundColor: "#66df81",
-  color: "#406108",
+  backgroundColor: "#d6af00",
+  color: "#ffffff",
 });

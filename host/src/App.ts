@@ -5,7 +5,20 @@ const render = (mfeName: "react" | "svelte" | "vue" | "solid") => {
   element.style.marginTop = "1rem";
   document.getElementById("main-content").appendChild(element);
   try {
-    require(`${mfeName}/App`).default(id);
+    switch (mfeName) {
+      case "react":
+        require("react/App").default(id);
+        break;
+      case "svelte":
+        require("svelte/App").default(id);
+        break;
+      case "vue":
+        require("vue/App").default(id);
+        break;
+      case "solid":
+        require("solid/App").default(id);
+        break;
+    }
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
@@ -100,6 +113,6 @@ const renderHome = () => {
 
 renderHome();
 render("react");
-render("svelte");
-render("vue");
-render("solid");
+// render("svelte");
+// render("vue");
+// render("solid");
