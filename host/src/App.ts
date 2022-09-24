@@ -1,58 +1,102 @@
 import SolidButton from "solid/Button";
-
 SolidButton("solid");
 
-const renderReactApp = async () => {
+const renderReactApp = () => {
   const element = document.createElement("div");
   const id = "react-app";
   element.id = id;
-  document.body.appendChild(element);
+  element.style.marginTop = "1rem";
+  document.getElementById("main-content").appendChild(element);
   try {
-    await require("react/App").default(document, id);
+    require("react/App").default(document, id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
   }
 };
 
-const renderSvelteApp = async () => {
+const renderSvelteApp = () => {
   const element = document.createElement("div");
   const id = "svelte-app";
   element.id = id;
-  document.body.appendChild(element);
+  element.style.marginTop = "1rem";
+  document.getElementById("main-content").appendChild(element);
   try {
-    await require("svelte/App").default(document, id);
+    require("svelte/App").default(window, id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
   }
 };
 
-const renderVueApp = async () => {
+const renderVueApp = () => {
   const element = document.createElement("div");
   const id = "vue-app";
   element.id = id;
-  document.body.appendChild(element);
+  element.style.marginTop = "1rem";
+  document.getElementById("main-content").appendChild(element);
   try {
-    await require("vue/App").default(id);
+    require("vue/App").default(id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
   }
 };
 
-const renderHome = () => {
+const buildButton = (document: Document) => {
   let count = 0;
 
-  function writeButtonText() {
-    document.getElementById("count").innerHTML = `[Host] Click count: ${count}`;
-  }
-  document.getElementById("count").addEventListener("click", function () {
+  const buttonElement = document.createElement("button");
+  buttonElement.style.padding = "0.5rem";
+  buttonElement.style.borderRadius = "0.375rem";
+  buttonElement.style.backgroundColor = "#02521e";
+  buttonElement.style.color = "#87ffaf";
+  buttonElement.innerHTML = `[Host] Click count: 0`;
+
+  buttonElement.addEventListener("click", function () {
     count++;
-    writeButtonText();
+    buttonElement.innerHTML = `[Host] Click count: ${count}`;
+  });
+  buttonElement.addEventListener("mouseover", function () {
+    buttonElement.style.opacity = `75%`;
+  });
+  buttonElement.addEventListener("mouseout", function () {
+    buttonElement.style.opacity = `100%`;
   });
 
-  writeButtonText();
+  return buttonElement;
+};
+
+const buildWrapper = (document: Document) => {
+  const wrapper = document.createElement("div");
+  wrapper.id = "home";
+  wrapper.style.marginTop = "1rem";
+
+  const element = document.createElement("div");
+  element.style.color = "ivory";
+  element.style.backgroundColor = "darkolivegreen";
+  element.style.width = "100%";
+  element.style.height = "250px";
+  element.style.padding = "20px";
+  element.style.boxSizing = "border-box";
+  element.style.borderRadius = "20px";
+  element.innerHTML = `
+    A Host component that uses
+    <ul>
+      <li>Vanilla JS</li>
+      <li>Vanilla CSS</li>
+    </ul>
+  `;
+
+  wrapper.appendChild(element);
+
+  return element;
+};
+
+const renderHome = () => {
+  const wrapper = buildWrapper(document);
+  wrapper.appendChild(buildButton(document));
+  document.getElementById("main-content").appendChild(wrapper);
 };
 
 renderHome();
