@@ -1,5 +1,5 @@
-import SolidButton from "solid/Button";
-SolidButton("solid");
+// import SolidButton from "solid/Button";
+// SolidButton("solid");
 
 const renderReactApp = () => {
   const element = document.createElement("div");
@@ -29,19 +29,19 @@ const renderSvelteApp = () => {
   }
 };
 
-const renderVueApp = () => {
-  const element = document.createElement("div");
-  const id = "vue-app";
-  element.id = id;
-  element.style.marginTop = "1rem";
-  document.getElementById("main-content").appendChild(element);
-  try {
-    require("vue/App").default(id);
-  } catch (e) {
-    console.error((e as Error).message);
-    element.remove();
-  }
-};
+// const renderVueApp = () => {
+//   const element = document.createElement("div");
+//   const id = "vue-app";
+//   element.id = id;
+//   element.style.marginTop = "1rem";
+//   document.getElementById("main-content").appendChild(element);
+//   try {
+//     require("vue/App").default(id);
+//   } catch (e) {
+//     console.error((e as Error).message);
+//     element.remove();
+//   }
+// };
 
 const buildButton = (document: Document) => {
   let count = 0;
@@ -81,11 +81,7 @@ const buildWrapper = (document: Document) => {
   element.style.boxSizing = "border-box";
   element.style.borderRadius = "20px";
   element.innerHTML = `
-    A Host component that uses
-    <ul>
-      <li>Vanilla JS</li>
-      <li>Vanilla CSS</li>
-    </ul>
+    A host component that is built with VanillaJS (not an MFE)
   `;
 
   wrapper.appendChild(element);
@@ -102,4 +98,4 @@ const renderHome = () => {
 renderHome();
 renderReactApp();
 renderSvelteApp();
-renderVueApp();
+// renderVueApp();
