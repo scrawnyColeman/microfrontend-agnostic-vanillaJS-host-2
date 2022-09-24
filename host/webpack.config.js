@@ -19,7 +19,7 @@ module.exports = (_, argv) => ({
     publicPath:
       argv.mode === "development"
         ? "http://localhost:8082"
-        : "https://host-mfe-scrawnycoleman.vercel.app",
+        : "https://host-vanillajs.vercel.app",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".jsx", ".js", ".json"],
