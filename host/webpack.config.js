@@ -14,8 +14,13 @@ const getRemote = (mfe) => {
   return `${mfe}_mfe@${remoteMap[mfe]}remoteEntry.js`;
 };
 
-module.exports = {
-  output: {},
+module.exports = (_, argv) => ({
+  output: {
+    publicPath:
+      argv.mode === "development"
+        ? "http://localhost:8082"
+        : "https://host-mfe-scrawnycoleman.vercel.app",
+  },
   resolve: {
     extensions: [".ts", ".tsx", ".jsx", ".js", ".json"],
   },
@@ -58,4 +63,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});
