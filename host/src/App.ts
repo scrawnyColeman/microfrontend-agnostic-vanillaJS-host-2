@@ -81,7 +81,7 @@ const buildWrapper = (document: Document) => {
   element.style.boxSizing = "border-box";
   element.style.borderRadius = "20px";
   element.innerHTML = `
-    A host component that is built with VanillaJS (not an MFE)
+    <h4 style="margin: 0 0 1rem 0;">A host component that is built with VanillaJS (not an MFE)</h4>
   `;
 
   wrapper.appendChild(element);
