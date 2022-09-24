@@ -1,43 +1,40 @@
-import VueApp from "vue/App";
-import ReactApp from "react/App";
-import SvelteApp from "svelte/App";
 import SolidButton from "solid/Button";
 
 SolidButton("solid");
 
-const renderReactApp = () => {
+const renderReactApp = async () => {
   const element = document.createElement("div");
   const id = "react-app";
   element.id = id;
   document.body.appendChild(element);
   try {
-    ReactApp(document, id);
+    await require("react/App").default(document, id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
   }
 };
 
-const renderSvelteApp = () => {
+const renderSvelteApp = async () => {
   const element = document.createElement("div");
   const id = "svelte-app";
   element.id = id;
   document.body.appendChild(element);
   try {
-    SvelteApp(document, id);
+    await require("svelte/App").default(document, id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
   }
 };
 
-const renderVueApp = () => {
+const renderVueApp = async () => {
   const element = document.createElement("div");
   const id = "vue-app";
   element.id = id;
   document.body.appendChild(element);
   try {
-    VueApp(id);
+    await require("vue/App").default(id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
@@ -58,7 +55,7 @@ const renderHome = () => {
   writeButtonText();
 };
 
+renderHome();
 renderReactApp();
 renderSvelteApp();
 renderVueApp();
-renderHome();
