@@ -44,21 +44,30 @@ const renderVueApp = () => {
   }
 };
 
+const renderHome = () => {
+  let count = 0;
+
+  document.getElementById("home").innerHTML = `
+  A Host component that uses
+  <ul>
+    <li>Vanilla JS</li>
+    <li>Vanilla CSS</li>
+  </ul>
+  <button id="count" ></button>
+  `;
+
+  function writeButtonText() {
+    document.getElementById("count").innerHTML = `[Host] Click count: ${count}`;
+  }
+  document.getElementById("count").addEventListener("click", function () {
+    count++;
+    writeButtonText();
+  });
+
+  writeButtonText();
+};
+
 renderReactApp();
 renderSvelteApp();
 renderVueApp();
-
-let count = 0;
-
-document.getElementById("vanilla").innerHTML = `<button id="count"></button>`;
-
-function writeButtonText() {
-  document.getElementById("count").innerHTML = `[Host] Click count: ${count}`;
-}
-
-document.getElementById("count").addEventListener("click", function () {
-  count++;
-  writeButtonText();
-});
-
-writeButtonText();
+renderHome();
