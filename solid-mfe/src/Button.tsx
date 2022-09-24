@@ -1,21 +1,25 @@
-import { createSignal } from "solid-js";
-import { render } from "solid-js/web";
+import { createSignal, JSX } from "solid-js";
+import { styled } from "solid-styled-components";
 
 export const Button = () => {
   const [count, setCount] = createSignal(0);
 
   return (
-    <button
-      type="button"
+    <StyledButton
       onClick={() => {
         setCount((prev) => prev + 1);
       }}
     >
       [solid] Click count: {count()}
-    </button>
+    </StyledButton>
   );
 };
 
-export default function RenderButton(id: string) {
-  render(Button, document.getElementById(id));
-}
+export default Button;
+
+const StyledButton = styled("button")({
+  padding: "0.5rem",
+  borderRadius: "0.375rem",
+  backgroundColor: "#66df81",
+  color: "#406108",
+});

@@ -17,6 +17,7 @@
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-preset-solid": "^1.1.5",
+    "emotion-solid": "^1.1.1",
     "html-webpack-plugin": "^5.3.2",
     "webpack": "^5.57.1",
     "webpack-cli": "^4.9.0",
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "solid-js": "^1.1.5"
+    "solid-js": "^1.1.5",
+    "solid-styled-components": "^0.28.4"
   }
 }

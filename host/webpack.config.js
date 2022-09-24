@@ -8,7 +8,7 @@ const getRemote = (mfe) => {
     react: "https://mfe-react-scrawnycoleman.vercel.app/",
     vue: "https://mfe-vue-scrawnycoleman.vercel.app/",
     svelte: "https://mfe-svelte-scrawnycoleman.vercel.app/",
-    solid: "https://solid-js-mfe-scrawnycoleman.vercel.app/",
+    solid: "https://mfe-solid-scrawnycoleman.vercel.app/",
   };
 
   return `${mfe}_mfe@${remoteMap[mfe]}remoteEntry.js`;
