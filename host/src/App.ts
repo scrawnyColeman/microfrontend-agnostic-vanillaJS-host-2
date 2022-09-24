@@ -5,7 +5,7 @@ const render = (mfeName: "react" | "svelte" | "vue" | "solid") => {
   element.style.marginTop = "1rem";
   document.getElementById("main-content").appendChild(element);
   try {
-    require(`${mfeName}/App`).default(document, id);
+    require(`${mfeName}/App`).default(id);
   } catch (e) {
     console.error((e as Error).message);
     element.remove();
