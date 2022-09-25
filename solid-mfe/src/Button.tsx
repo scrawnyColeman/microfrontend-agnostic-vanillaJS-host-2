@@ -11,7 +11,7 @@ export const Button = () => {
         setCount((prev) => prev + 1);
       }}
     >
-      [solid] Click count: {count()}
+      Click count: {count()}
     </StyledButton>
   );
 };
