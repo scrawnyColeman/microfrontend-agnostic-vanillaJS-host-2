@@ -1,4 +1,4 @@
-import { createSignal, JSX } from "solid-js";
+import { createSignal } from "solid-js";
 import { styled } from "solid-styled-components";
 
 export const Button = () => {
@@ -6,6 +6,7 @@ export const Button = () => {
 
   return (
     <StyledButton
+      type="button"
       onClick={() => {
         setCount((prev) => prev + 1);
       }}
@@ -20,6 +21,7 @@ export default Button;
 const StyledButton = styled("button")({
   padding: "0.5rem",
   borderRadius: "0.375rem",
-  backgroundColor: "#d6af00",
-  color: "#ffffff",
+  backgroundColor: "#eef4cd",
+  color: "#17111c",
+  fontWeight: 600,
 });
